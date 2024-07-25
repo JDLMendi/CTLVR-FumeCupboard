@@ -8,4 +8,12 @@ public class MenuController : MonoBehaviour
     public void StartBtn() {
         SceneManager.LoadScene("Main Scene");
     }
+
+    public void QuitBtn() {
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
+    }
 }
