@@ -4,14 +4,16 @@ using UnityEngine;
 using UltimateXR.Devices;
 using UltimateXR.Avatar;
 using UltimateXR.Core;
-using UnityEngine.EventSystems; // Import this namespace
+using UltimateXR.UI;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
     public static bool IsPaused = false;
     public GameObject pauseMenu;
-    public EventSystem eventSystem; // Reference to the EventSystem
+    public EventSystem eventSystem;
+    public UxrLaserPointer laserHand;
 
     private void Update() {
         if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Left, UxrInputButtons.Button2)) {
