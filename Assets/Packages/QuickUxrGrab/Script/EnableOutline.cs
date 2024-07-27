@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnableOutline : MonoBehaviour
 {
-    [SerializeField] private Outline outline;
+    [SerializeField] public Outline outline;
 
     public void Initialise(GameObject parent)
     {
