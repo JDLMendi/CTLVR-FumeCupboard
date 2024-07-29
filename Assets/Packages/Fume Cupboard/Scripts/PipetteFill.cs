@@ -7,21 +7,18 @@ public class PipetteFill : MonoBehaviour
     Material objectMaterial;
     float progressBorder;
     float storedLiquid;
-    ParticleSystem pipetteParticles;
-
-    GameObject pourPivot;
-    Vector3 pourPos;
+    GameObject pipetteParticles;
+    ParticleSystem pipetteParticleSystem;
 
     void Start() {
-        objectMaterial = GetComponent<Renderer>().material;
-        pipetteParticles = (ParticleSystem)FindObjectOfType(typeof(ParticleSystem));
-        pourPivot = GameObject.Find("PipettePivot");
+        objectMaterial = this.GetComponent<Renderer>().material;
+        pipetteParticles = transform.Find("PipetteParticles").gameObject;
+        pipetteParticleSystem = pipetteParticles.GetComponent<ParticleSystem>();
     }
 
     void Update() {
         progressBorder = (0.2f * (storedLiquid / 100.0f)) - 0.1f;
         objectMaterial.SetFloat("_ProgressBorder", progressBorder);
-        pourPos = pourPivot.transform.position;
     }
 
     public void fillUp() {
@@ -30,12 +27,8 @@ public class PipetteFill : MonoBehaviour
 
     public void pourOut() {
         storedLiquid = Mathf.Max(0.0f, storedLiquid - 0.25f);
-
-        var emitParams = new ParticleSystem.EmitParams();
-        emitParams.position = this.transform.position;
-        emitParams.velocity = new Vector3(0.0f, -1.0f, 0.0f);
         if (storedLiquid > 0.0f) {
-            pipetteParticles.Emit(1);
+            pipetteParticleSystem.Emit(1);
         }
     }
 }

@@ -11,17 +11,10 @@ using UnityEngine.SceneManagement;
 
 public class PipetteControl : MonoBehaviour
 {
-    public static bool releasePipette = false;
-    GameObject pipetteLiquid;
-
-    void Start() {
-        pipetteLiquid = GameObject.Find("PipetteLiquid");
-    }
-
     void Update() {
         if(UxrGrabManager.Instance.GetObjectBeingGrabbed(UxrAvatar.LocalAvatar, UxrHandSide.Left, out UxrGrabbableObject grabbableObject)) {
             if(UxrAvatar.LocalAvatarInput.GetButtonsPress(UxrHandSide.Left, UxrInputButtons.Trigger)) {
-                pipetteLiquid.GetComponent<PipetteFill>().pourOut();
+                grabbableObject.transform.Find("PipetteLiquid").gameObject.GetComponent<PipetteFill>().pourOut();
             }
         }
 
@@ -29,7 +22,7 @@ public class PipetteControl : MonoBehaviour
         {
             if (UxrAvatar.LocalAvatarInput.GetButtonsPress(UxrHandSide.Right, UxrInputButtons.Trigger))
             {
-                pipetteLiquid.GetComponent<PipetteFill>().pourOut();
+                grabbableObject2.transform.Find("PipetteLiquid").gameObject.GetComponent<PipetteFill>().pourOut();
             }
         }
     }
