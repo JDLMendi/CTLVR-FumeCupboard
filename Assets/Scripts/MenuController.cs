@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    public void StartScene(string sceneName) {
-        SceneManager.LoadScene(sceneName);
+    public void StartBtn() {
+        SceneManager.LoadScene("Main Scene");
     }
 
     public void QuitBtn() {
