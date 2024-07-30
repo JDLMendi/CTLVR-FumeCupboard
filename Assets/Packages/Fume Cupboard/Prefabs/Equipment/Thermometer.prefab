@@ -7088,8 +7088,8 @@ MonoBehaviour:
     _snapReference: 1
     _avatarGripPoseEntries:
     - _avatarPrefabGuid: 7195d091dac462e4db9ba0793d9a6727
-      _handPose: {fileID: 11400000, guid: f75a7c8ed47a5954e9f32fdb4470f8e0, type: 2}
-      _poseBlendValue: 0
+      _handPose: {fileID: 11400000, guid: ff7a753d7b1a03945a4ff39feb750511, type: 2}
+      _poseBlendValue: 1
       _gripAlignTransformHandLeft: {fileID: 1022106895092176035}
       _gripAlignTransformHandRight: {fileID: 4929099764692236635}
     _alignToController: 0
@@ -7137,13 +7137,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4392194798311112345}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.7002253, y: 0.098410234, z: -0.7002253, w: 0.098410234}
+  m_LocalPosition: {x: 0.01275, y: 0.2256, z: -0.0261}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4613935851020632634}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 16, y: -90, z: -180}
 --- !u!114 &6427792072972989788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7425,13 +7425,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7745486944670116310}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.098410234, y: 0.7002253, z: -0.098410234, w: 0.7002253}
+  m_LocalPosition: {x: -0.01275, y: 0.2256, z: -0.026}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4613935851020632634}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 16, y: 90, z: 0}
 --- !u!114 &6410428612777740877
 MonoBehaviour:
   m_ObjectHideFlags: 0
