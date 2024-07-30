@@ -8,6 +8,7 @@ TagManager:
   - SamplesInfoPanel
   - Gas
   - Vent
+  - HeatBlock
   layers:
   - Default
   - TransparentFX
