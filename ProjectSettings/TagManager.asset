@@ -9,6 +9,7 @@ TagManager:
   - Gas
   - Vent
   - HeatBlock
+  - Whiteboard
   layers:
   - Default
   - TransparentFX
