@@ -11,7 +11,7 @@ public class VacuumControl : MonoBehaviour
     void Update()
     {
         float dialRotation = dial.localRotation.eulerAngles.z / -360; // Between 0 (fully shut) and 1 (fully open)
-        Debug.Log(dial.localRotation.eulerAngles.z);
+        // Debug.Log(dial.localRotation.eulerAngles.z);
         vacuumer.gravity = 0.12f * dialRotation;
     }
 }
