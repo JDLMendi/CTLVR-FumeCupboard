@@ -9,9 +9,9 @@ public class BulbPipette : MonoBehaviour
 {
     // Determine which of the three grab point is being held.
 
-    private bool _holdingAir; // 1
-    private bool _holdingEmpty; // 3 
-    private bool _holdingSuction;// 2
+    [SerializeField] bool _holdingAir; // 1
+    [SerializeField] bool _holdingEmpty; // 3 
+    [SerializeField] bool _holdingSuction;// 2
     private bool _noAir = false;
     public UxrGrabber grabberLeft;
     public UxrGrabber grabberRight;
@@ -35,8 +35,13 @@ public class BulbPipette : MonoBehaviour
     
     private void Update() {
 
-        foreach (UxrGrabber grabber in _grabbers) {
-            Debug.Log(UxrGrabManager.Instance.GetGrabbedPoint(grabber)); // GetGrabbedPoint() <- Gets the active grab point
+        bool anyGrabberActive = false;
+
+        // Iterate over each grabber in the array
+        foreach (UxrGrabber grabber in _grabbers)
+        {
+            int grabIndex = UxrGrabManager.Instance.GetGrabbedPoint(grabber);
+            // Debug.Log(grabIndex); // GetGrabbedPoint() <- Gets the active grab point
 
             /** 
                 Grab Point Index
@@ -44,8 +49,39 @@ public class BulbPipette : MonoBehaviour
                 1 - Bulb/Air
                 2 - Suction
                 3 - Exit
+                -1 - Nothing
             **/
+
+            switch (grabIndex)
+            {
+                case 1:
+                    _holdingAir = true;
+                    Debug.Log("Holding Air");
+                    break;
+                case 2:
+                    _holdingSuction = true;
+                    Debug.Log("Holding Suction");
+                    break;
+                case 3:
+                    _holdingEmpty = true;
+                    Debug.Log("Holding Empty");
+                    break;
+                default:
+                    // If the grabIndex is not -1 or 0, mark anyGrabberActive as true
+                    if (grabIndex != -1 && grabIndex != 0)
+                    {
+                        anyGrabberActive = true;
+                    }
+                    break;
+            }
         }
-        
+
+        // If no grabber has an active grab point, set all holding parameters to false
+        if (!anyGrabberActive)
+        {
+            _holdingAir = _holdingSuction = _holdingEmpty = false;
+        }
     }
 }
+        
+
