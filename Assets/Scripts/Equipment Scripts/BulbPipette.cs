@@ -91,7 +91,6 @@ public class BulbPipette : MonoBehaviour
         if (!e.IsMultiHands) {
             _collider.isTrigger = false;
         }
-
     }
 }
         
