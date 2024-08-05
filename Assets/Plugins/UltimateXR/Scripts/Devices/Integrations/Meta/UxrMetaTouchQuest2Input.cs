@@ -72,7 +72,7 @@ namespace UltimateXR.Devices.Integrations.Meta
         {
             get
             {
-                UnityEngine.Debug.LogWarning("Enrique's Debug Log Request Result: " + UxrTrackingDevice.HeadsetDeviceName);
+                // UnityEngine.Debug.LogWarning("Enrique's Debug Log Request Result: " + UxrTrackingDevice.HeadsetDeviceName);
                 if (UxrTrackingDevice.HeadsetDeviceName is "Oculus Quest2" || UxrTrackingDevice.HeadsetDeviceName is "Vive OpenXR: Vive SRanipal")
                 {
                     yield return "Oculus Touch Controller - Left";
