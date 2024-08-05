@@ -77,10 +77,6 @@ public class BulbPipette : MonoBehaviour
     private void GrabRelease(object sender, UxrManipulationEventArgs e) {
         if (e.GrabbableObject != grabbableObject) return;
 
-        if (!e.IsSwitchHands) {
-            _collider.isTrigger = false;
-        } 
-        _collider.isTrigger = false;
         switch (e.Grabber.Side) {
             case UxrHandSide.Left:
                 _leftHolding = BulbHolding.Nothing;
@@ -91,6 +87,11 @@ public class BulbPipette : MonoBehaviour
                 Debug.Log($"Holding nothing on the Right");
                 break;
         }
+
+        if (!e.IsMultiHands) {
+            _collider.isTrigger = false;
+        }
+
     }
 }
         
