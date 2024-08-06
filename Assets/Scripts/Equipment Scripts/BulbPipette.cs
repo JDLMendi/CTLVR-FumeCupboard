@@ -22,6 +22,7 @@ public class BulbPipette : MonoBehaviour
     public GameObject liquidChild;
     public Color liquidColour;
     public Renderer liquidRenderer;
+    public ParticleSystem particleSystem;
     
     // Holds what hand is holding
     private BulbHolding _leftHolding;
@@ -217,7 +218,6 @@ public class BulbPipette : MonoBehaviour
     {
         if (_collidedLiquid != null && _isFilled)
         {
-            baseBulb.SetActive(true);
             // Get the parent GameObject of the collided liquid
             GameObject parentObject = _collidedLiquid.transform.parent.gameObject;
             // Try to get the LiquidDiluting component from the parent
@@ -225,27 +225,32 @@ public class BulbPipette : MonoBehaviour
             if (liquidDiluting != null)
             {
                 Debug.Log("LiquidDiluting script found on the parent!");
-                liquidDiluting.MixLiquid(liquidRenderer.material.color, 0.6f);
-
-                // If a coroutine is already running, stop it
-                if (_emptyCoroutine != null)
-                {
-                    StopCoroutine(_emptyCoroutine);
-                }
-
-                // Start the coroutine to lerp the color back to white
-                _emptyCoroutine = StartCoroutine(LerpEmptyColor(Color.white, 0.1f, 1f)); // Duration of 1 second
+                liquidDiluting.MixLiquid(liquidRenderer.material.color, 0.6f);    
             }
             else
             {
                 Debug.Log("LiquidDiluting script not found on the parent!");
             }
         }
-        else
+        else if (_collidedLiquid == null && _isFilled)
         {
-            Debug.Log("No collided liquid to interact with!");
+            particleSystem.startColor = liquidColour;
+            particleSystem.Play();
         }
+
+        baseBulb.SetActive(true);
+        
+         // If a coroutine is already running, stop it
+        if (_emptyCoroutine != null)
+        {
+            StopCoroutine(_emptyCoroutine);
+        }
+
+        // Start the coroutine to lerp the color back to white
+        _emptyCoroutine = StartCoroutine(LerpEmptyColor(Color.white, 0.1f, 1f)); // Duration of 1 second
     }
+
+    
 
     private IEnumerator LerpEmptyColor(Color targetColor, float targetAlpha, float duration)
     {
