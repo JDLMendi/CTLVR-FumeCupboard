@@ -4940,7 +4940,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: 7e113e6140ea0724288d816c4a7b59cc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5651,7 +5651,7 @@ MonoBehaviour:
   _rigidBodyDynamicOnRelease: 1
   _verticalReleaseMultiplier: 1
   _horizontalReleaseMultiplier: 1
-  _previewGrabPosesMode: 2
+  _previewGrabPosesMode: 3
   _previewPosesRegenerationType: 0
   _previewPosesRegenerationIndex: -1
   _selectedAvatarForGrips: {fileID: 6999715261389110437, guid: 7195d091dac462e4db9ba0793d9a6727,
@@ -5819,8 +5819,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.05737689, y: 0.6409358, z: 0.052770317}
-  m_Center: {x: 0.00533247, y: 0.028673112, z: -0.0011436343}
+  m_Size: {x: 0.0130286, y: 0.6347542, z: 0.010145187}
+  m_Center: {x: -0.0014933574, y: 0.031763818, z: 0.00053334236}
 --- !u!114 &4862453270586394255
 MonoBehaviour:
   m_ObjectHideFlags: 0
