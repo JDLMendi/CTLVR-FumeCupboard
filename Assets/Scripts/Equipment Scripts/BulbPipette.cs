@@ -33,7 +33,8 @@ public class BulbPipette : MonoBehaviour
     private bool _collidedWithLiquid = false;
     private GameObject _collidedLiquid;
     private Color _collidedColour = Color.white;
-
+    private Coroutine _fillCoroutine;
+    private Coroutine _emptyCoroutine;
     private void Start() {
         _leftHolding = _rightHolding = BulbHolding.Nothing;
         grabbableObject = GetComponent<UxrGrabbableObject>();
@@ -203,37 +204,86 @@ public class BulbPipette : MonoBehaviour
         // Otherwise, if it is not colliding with anything then could possibly not do anything or do a PS and empty the liquid from the pipette.
     }
 
-    private void FillPipette() {
-        _isFilled = true;
-        liquidColour = _collidedColour;
-        liquidColour.a = 1.0f;
-        liquidRenderer.material.color = liquidColour;
+    private void FillPipette()
+    {
+        if (_fillCoroutine != null)
+        {
+            StopCoroutine(_fillCoroutine);
+        }
+        _fillCoroutine = StartCoroutine(LerpFillColor(_collidedColour, 0.6f, 1f)); // Duration of 1 second
     }
 
-    private void EmptyPipette() {
-        
-        if (_collidedLiquid != null && _isFilled) {
+    private void EmptyPipette()
+    {
+        if (_collidedLiquid != null && _isFilled)
+        {
             baseBulb.SetActive(true);
             // Get the parent GameObject of the collided liquid
             GameObject parentObject = _collidedLiquid.transform.parent.gameObject;
             // Try to get the LiquidDiluting component from the parent
             LiquidDiluting liquidDiluting = parentObject.GetComponent<LiquidDiluting>();
-            if (liquidDiluting != null) {
+            if (liquidDiluting != null)
+            {
                 Debug.Log("LiquidDiluting script found on the parent!");
-                liquidDiluting.MixLiquid(liquidColour, 0.6f);
+                liquidDiluting.MixLiquid(liquidRenderer.material.color, 0.6f);
 
-                // Reset the colour of the liquid inside the pipette
-                liquidColour = Color.white;
-                liquidColour.a = 0.1f;
-                liquidRenderer.material.color = liquidColour;
-                _isFilled = false;
-            } else {
+                // If a coroutine is already running, stop it
+                if (_emptyCoroutine != null)
+                {
+                    StopCoroutine(_emptyCoroutine);
+                }
+
+                // Start the coroutine to lerp the color back to white
+                _emptyCoroutine = StartCoroutine(LerpEmptyColor(Color.white, 0.1f, 1f)); // Duration of 1 second
+            }
+            else
+            {
                 Debug.Log("LiquidDiluting script not found on the parent!");
             }
-        } else {
+        }
+        else
+        {
             Debug.Log("No collided liquid to interact with!");
         }
     }
+
+    private IEnumerator LerpEmptyColor(Color targetColor, float targetAlpha, float duration)
+    {
+        Color startColor = liquidRenderer.material.color;
+        targetColor.a = targetAlpha;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            liquidRenderer.material.color = Color.Lerp(startColor, targetColor, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the final color is set
+        liquidRenderer.material.color = targetColor;
+        _isFilled = false;
+    }
+
+
+    private IEnumerator LerpFillColor(Color targetColor, float targetAlpha, float duration)
+    {
+        _isFilled = true;
+        Color startColor = liquidRenderer.material.color;
+        targetColor.a = targetAlpha;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            liquidRenderer.material.color = Color.Lerp(startColor, targetColor, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        // Ensure the final color is set
+        liquidRenderer.material.color = targetColor;
+    }
+
 }
 
 
