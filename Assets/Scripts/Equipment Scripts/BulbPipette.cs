@@ -44,7 +44,7 @@ public class BulbPipette : MonoBehaviour
             Debug.LogWarning("Liquid Child Object found!");
             liquidChild = liquidTransform.gameObject;
             liquidRenderer = liquidChild.GetComponent<Renderer>();
-            if (liquidRenderer != null) liquidColour = liquidRenderer.material.color;
+            if (liquidRenderer) liquidColour = liquidRenderer.material.color;
             else Debug.Log("Renderer not found!");
         } else {
             Debug.LogWarning("Liquid Child Object not found!");
@@ -211,22 +211,22 @@ public class BulbPipette : MonoBehaviour
     }
 
     private void EmptyPipette() {
-        _isFilled = false;
-        if (_collidedLiquid != null) {
+        
+        if (_collidedLiquid != null && _isFilled) {
             baseBulb.SetActive(true);
             // Get the parent GameObject of the collided liquid
             GameObject parentObject = _collidedLiquid.transform.parent.gameObject;
-
             // Try to get the LiquidDiluting component from the parent
             LiquidDiluting liquidDiluting = parentObject.GetComponent<LiquidDiluting>();
             if (liquidDiluting != null) {
                 Debug.Log("LiquidDiluting script found on the parent!");
-                liquidDiluting.MixLiquid(liquidColour, 1.0f);
+                liquidDiluting.MixLiquid(liquidColour, 0.6f);
 
                 // Reset the colour of the liquid inside the pipette
                 liquidColour = Color.white;
                 liquidColour.a = 0.1f;
                 liquidRenderer.material.color = liquidColour;
+                _isFilled = false;
             } else {
                 Debug.Log("LiquidDiluting script not found on the parent!");
             }
