@@ -18,18 +18,37 @@ public class BulbPipette : MonoBehaviour
 {
 
     public UxrGrabbableObject grabbableObject;
+    public GameObject baseBulb;
+    public GameObject liquidChild;
+    public Color liquidColour;
+    public Renderer liquidRenderer;
     
     // Holds what hand is holding
     private BulbHolding _leftHolding;
     private BulbHolding _rightHolding;
     private Collider _collider;
     private bool _noAir = false; // Used in conjunction with Suction and Air
-    private bool beingHeld = false;
+    private bool _beingHeld = false;
+    private bool _isFilled = false;
+    private bool _collidedWithLiquid = false;
+    private GameObject _collidedLiquid;
+    private Color _collidedColour = Color.white;
 
     private void Start() {
         _leftHolding = _rightHolding = BulbHolding.Nothing;
         grabbableObject = GetComponent<UxrGrabbableObject>();
         _collider = GetComponent<Collider>();
+
+        Transform liquidTransform = transform.Find("Liquid");
+        if (liquidTransform != null) {
+            Debug.LogWarning("Liquid Child Object found!");
+            liquidChild = liquidTransform.gameObject;
+            liquidRenderer = liquidChild.GetComponent<Renderer>();
+            if (liquidRenderer != null) liquidColour = liquidRenderer.material.color;
+            else Debug.Log("Renderer not found!");
+        } else {
+            Debug.LogWarning("Liquid Child Object not found!");
+        }
     }
     private void OnEnable() {
 
@@ -103,6 +122,28 @@ public class BulbPipette : MonoBehaviour
         }
     }
 
+    // Collision when the pipette enters a gameobject with a 'Liquid' Tag
+    private void OnTriggerEnter(Collider other) {
+        if (other.CompareTag("Liquid")) {
+            _collidedWithLiquid = true;
+            _collidedLiquid = other.gameObject;
+
+            Renderer renderer = other.GetComponent<Renderer>();
+            if (renderer != null) {
+                _collidedColour = renderer.material.color;
+                // Debug.Log("Collided with liquid. Color: " + _collidedColour);
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.CompareTag("Liquid")) {
+            _collidedWithLiquid = false;
+            _collidedLiquid = null;
+            Debug.Log("Trigger has left the liquid!");
+        }
+    }
+
     // When a button is pressed, this should determine if the button is a Trigger (front button of controller).
     // 1. Check what hand the trigger is being pulled and if it is holding something
     
@@ -144,23 +185,55 @@ public class BulbPipette : MonoBehaviour
     }
     private void PressingAir() {
         _noAir = true;
-
-        // Hide Base Bulb
+        baseBulb.SetActive(false);
     }
 
     private void PressingSuction() {
         if (_noAir) {
+            FillPipette();
             // Check if collider is colliding with a liquid gameobject and get the colour, empty it out and fill the pipette with the colour
         }
     }
     private void PressingEmpty() {
         _noAir = false;
+        EmptyPipette();
 
         // Show Base Bulb
-
         // Check if it collides with a colourless liquid gameobject and cause it to change the opacity and colour when it is.
         // Otherwise, if it is not colliding with anything then could possibly not do anything or do a PS and empty the liquid from the pipette.
     }
- }
+
+    private void FillPipette() {
+        _isFilled = true;
+        liquidColour = _collidedColour;
+        liquidColour.a = 1.0f;
+        liquidRenderer.material.color = liquidColour;
+    }
+
+    private void EmptyPipette() {
+        _isFilled = false;
+        if (_collidedLiquid != null) {
+            baseBulb.SetActive(true);
+            // Get the parent GameObject of the collided liquid
+            GameObject parentObject = _collidedLiquid.transform.parent.gameObject;
+
+            // Try to get the LiquidDiluting component from the parent
+            LiquidDiluting liquidDiluting = parentObject.GetComponent<LiquidDiluting>();
+            if (liquidDiluting != null) {
+                Debug.Log("LiquidDiluting script found on the parent!");
+                liquidDiluting.MixLiquid(liquidColour, 1.0f);
+
+                // Reset the colour of the liquid inside the pipette
+                liquidColour = Color.white;
+                liquidColour.a = 0.1f;
+                liquidRenderer.material.color = liquidColour;
+            } else {
+                Debug.Log("LiquidDiluting script not found on the parent!");
+            }
+        } else {
+            Debug.Log("No collided liquid to interact with!");
+        }
+    }
+}
 
 
