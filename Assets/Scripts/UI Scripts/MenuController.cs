@@ -9,6 +9,10 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene("Main Scene");
     }
 
+    public void StartScene(string sceneName) {
+        SceneManager.LoadScene(sceneName);
+    }
+
     public void QuitBtn() {
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
