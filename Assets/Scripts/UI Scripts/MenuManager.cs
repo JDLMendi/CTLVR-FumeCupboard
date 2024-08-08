@@ -38,8 +38,6 @@ public class MenuManager : MonoBehaviour
                 Pause();
                 break;
             }
-
-
     }
 
     public void Resume() {
