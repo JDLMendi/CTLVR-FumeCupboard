@@ -42,18 +42,6 @@ public class MenuManager : MonoBehaviour
 
     }
 
-    // private void Update() {
-    //     if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Left, UxrInputButtons.Button2)) {
-    //         if (IsPaused) {
-    //             Debug.Log("Resuming Scene");
-    //             Resume();
-    //         } else {
-    //             Debug.Log("Pausing Scene");
-    //             Pause();
-    //         }
-    //     }
-    // }
-
     public void Resume() {
         pauseMenu.SetActive(false);
         IsPaused = false;
