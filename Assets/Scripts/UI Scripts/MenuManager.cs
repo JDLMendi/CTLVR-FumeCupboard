@@ -7,6 +7,7 @@ using UltimateXR.Core;
 using UltimateXR.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UltimateXR.Devices;
 
 public class MenuManager : MonoBehaviour
 {
@@ -15,17 +16,43 @@ public class MenuManager : MonoBehaviour
     public EventSystem eventSystem;
     public UxrLaserPointer laserHand;
 
-    private void Update() {
-        if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Left, UxrInputButtons.Button2)) {
-            if (IsPaused) {
+    private void OnEnable() {
+        // Button interaction
+        UxrControllerInput.GlobalButtonStateChanged += MenuButtonPressed;
+    }
+
+    private void OnDisable() {
+        UxrControllerInput.GlobalButtonStateChanged -= MenuButtonPressed;
+    }
+
+    private void MenuButtonPressed(object sender, UxrInputButtonEventArgs e) {
+        if (e.Button != UxrInputButtons.Button1 || e.ButtonEventType != UxrButtonEventType.Pressing || e.HandSide != UxrHandSide.Left) return;
+        
+        switch (IsPaused) {
+            case true:
                 Debug.Log("Resuming Scene");
                 Resume();
-            } else {
+                break;
+            case false:
                 Debug.Log("Pausing Scene");
                 Pause();
+                break;
             }
-        }
+
+
     }
+
+    // private void Update() {
+    //     if (UxrAvatar.LocalAvatarInput.GetButtonsPressDown(UxrHandSide.Left, UxrInputButtons.Button2)) {
+    //         if (IsPaused) {
+    //             Debug.Log("Resuming Scene");
+    //             Resume();
+    //         } else {
+    //             Debug.Log("Pausing Scene");
+    //             Pause();
+    //         }
+    //     }
+    // }
 
     public void Resume() {
         pauseMenu.SetActive(false);
