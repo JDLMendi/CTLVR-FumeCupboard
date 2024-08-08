@@ -57,7 +57,7 @@ public class BulbPipette : MonoBehaviour
     private void OnEnable() {
 
         // Holding Grab Points
-        UxrGrabManager.Instance.ObjectGrabbing += GrabHold;
+        UxrGrabManager.Instance.ObjectGrabbed += GrabHold;
         UxrGrabManager.Instance.ObjectReleasing += GrabRelease;
 
         // Button interaction
@@ -65,7 +65,7 @@ public class BulbPipette : MonoBehaviour
     }
 
     private void OnDisable() {
-        UxrGrabManager.Instance.ObjectGrabbing -= GrabHold;
+        UxrGrabManager.Instance.ObjectGrabbed -= GrabHold;
         UxrGrabManager.Instance.ObjectReleasing -= GrabRelease;
         UxrControllerInput.GlobalButtonStateChanged -= TriggerPressed;
     }
