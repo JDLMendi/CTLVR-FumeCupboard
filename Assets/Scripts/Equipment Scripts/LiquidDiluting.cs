@@ -19,7 +19,7 @@ public class LiquidDiluting : MonoBehaviour
 
             if (_liquidRenderer != null) {
                 liquidColour = _liquidRenderer.material.color;
-                Debug.Log($"Initial liquid color: {liquidColour}");
+                // Debug.Log($"Initial liquid color: {liquidColour}");
             } else {
                 Debug.LogError("Renderer component not found on liquid.");
             }
@@ -35,7 +35,7 @@ public class LiquidDiluting : MonoBehaviour
             StopCoroutine(_mixingCoroutine);
         }
 
-        Debug.Log($"Begin mixing of {colour} and {liquidColour}");
+        // Debug.Log($"Begin mixing of {colour} and {liquidColour}");
         _mixingCoroutine = StartCoroutine(MixLiquidRoutine(colour, duration));
     }
 
@@ -49,7 +49,7 @@ public class LiquidDiluting : MonoBehaviour
 
         Color initialColor = _liquidRenderer.material.color;
         Color targetColour = (initialColor + colour) / 2.0f; // Mix initial and new color
-        Debug.Log($"Target colour is: {targetColour}");
+        // Debug.Log($"Target colour is: {targetColour}");
         float elapsedTime = 0f;
 
         while (elapsedTime < duration)
@@ -63,7 +63,7 @@ public class LiquidDiluting : MonoBehaviour
 
         // Ensure the final color is set
         _liquidRenderer.material.color = targetColour;
-        Debug.Log($"Final color set to: {targetColour}");
+        // Debug.Log($"Final color set to: {targetColour}");
 
         liquidColour = targetColour; // Update liquidColour with the new mixed color
     }

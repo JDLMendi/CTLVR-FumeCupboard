@@ -28,7 +28,7 @@ public class PipetteSDControl : MonoBehaviour
         // Finding the Liquid Child and set the renderer
         Transform liquidTransform = transform.Find("Liquid");
         if (liquidTransform != null) {
-            Debug.LogWarning("Liquid Child Object found!");
+            // Debug.LogWarning("Liquid Child Object found!");
             liquidChild = liquidTransform.gameObject;
             liquidRenderer = liquidChild.GetComponent<Renderer>();
             if (liquidRenderer) liquidColour = liquidRenderer.material.color;
@@ -81,7 +81,7 @@ public class PipetteSDControl : MonoBehaviour
         // Try to get the LiquidDiluting component from the parent
         LiquidDiluting liquidDiluting = parentObject.GetComponent<LiquidDiluting>();
         if (liquidDiluting != null) {
-            Debug.Log("LiquidDiluting script found on the parent!");
+            // Debug.Log("LiquidDiluting script found on the parent!");
             liquidDiluting.MixLiquid(liquidColour, 2.0f);
 
             // Reset the colour of the liquid inside the pipette
@@ -113,7 +113,7 @@ public class PipetteSDControl : MonoBehaviour
         if (other.CompareTag("Liquid")) {
             _collidedWithLiquid = false;
             _collidedLiquid = null;
-            Debug.Log("Trigger has left the liquid!");
+            // Debug.Log("Trigger has left the liquid!");
         }
     }
 }
