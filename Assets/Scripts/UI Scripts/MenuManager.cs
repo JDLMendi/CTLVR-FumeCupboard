@@ -26,7 +26,7 @@ public class MenuManager : MonoBehaviour
     }
 
     private void MenuButtonPressed(object sender, UxrInputButtonEventArgs e) {
-        if (e.Button != UxrInputButtons.Button1 || e.ButtonEventType != UxrButtonEventType.Pressing || e.HandSide != UxrHandSide.Left) return;
+        if (e.Button != UxrInputButtons.Button1 || e.ButtonEventType != UxrButtonEventType.PressDown || e.HandSide != UxrHandSide.Left) return;
         
         switch (IsPaused) {
             case true:
