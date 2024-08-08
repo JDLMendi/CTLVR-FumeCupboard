@@ -24,7 +24,6 @@ public class VisionFollower : MonoBehaviour
         {
             // Find the position we need to be at
             Vector3 targetPosition = FindTargetPosition();
-            Debug.Log("Target Position: " + targetPosition);
 
             // Move just a little bit at a time
             MoveTowards(targetPosition);

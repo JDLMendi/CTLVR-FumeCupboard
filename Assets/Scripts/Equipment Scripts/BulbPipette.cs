@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Mathematics;
 
 using UltimateXR.Core;
 using UltimateXR.Manipulation;
 using UltimateXR.Devices;
-using Unity.Mathematics;
+using UltimateXR.Haptics;
+using UltimateXR.Avatar;
 
 public enum BulbHolding {
     Air,
@@ -153,6 +155,8 @@ public class BulbPipette : MonoBehaviour
 
         // Checks if the button being held is the trigger.
         if (e.Button != UxrInputButtons.Trigger || e.ButtonEventType != UxrButtonEventType.Pressing) return;
+
+        UxrAvatar.LocalAvatar.ControllerInput.SendGrabbableHapticFeedback (grabbableObject, UxrHapticClipType.Click);
 
         // Determine which hand is being pressed with
         bool isHoldingImportant;

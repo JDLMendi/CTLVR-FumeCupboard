@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PipetteFill : MonoBehaviour
 {
+    public float storedLiquid;
     Material objectMaterial;
     float progressBorder;
-    float storedLiquid;
     GameObject pipetteParticles;
     ParticleSystem pipetteParticleSystem;
 
