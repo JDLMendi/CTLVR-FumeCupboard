@@ -10,6 +10,9 @@ EditorBuildSettings:
     guid: 62ba43a55f111614e8fac4f4a378424b
   - enabled: 1
     path: Assets/Scenes/Explore.unity
+    guid: 3f504a828f9925c4aa9f0b62b2a7c60b
+  - enabled: 1
+    path: Assets/Scenes/Experiment Scene.unity
     guid: 7408f9471348faf4993f6e6ec0b4a54b
   - enabled: 1
     path: Assets/Scenes/Serial Dilation.unity
