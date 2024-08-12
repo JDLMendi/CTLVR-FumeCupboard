@@ -11,7 +11,6 @@ public class FillObjects : MonoBehaviour
                 other.transform.Find("PipetteLiquid").GetComponent<PipetteFill>().fillUp();
                 break;
             case "Liquid":
-                Debug.Log("Collided with a container");
                 other.GetComponent<LiquidControl>().Fill();
                 break;
             default:
