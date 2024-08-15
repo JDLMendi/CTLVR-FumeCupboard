@@ -5,9 +5,15 @@ using UnityEngine;
 public class FillObjects : MonoBehaviour
 {
     void OnParticleCollision(GameObject other) {
+        Debug.Log($"Collided with something {other.name}");
         switch (other.name) {
             case "Pipette":
                 other.transform.Find("PipetteLiquid").GetComponent<PipetteFill>().fillUp();
+                break;
+            case "Liquid":
+                other.GetComponent<LiquidControl>().Fill();
+                break;
+            default:
                 break;
         }
     }

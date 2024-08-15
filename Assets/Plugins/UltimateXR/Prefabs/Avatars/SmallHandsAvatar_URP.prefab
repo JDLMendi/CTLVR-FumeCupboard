@@ -224,7 +224,6 @@ GameObject:
   - component: {fileID: 6999715261389110458}
   - component: {fileID: 6999715261389110457}
   - component: {fileID: 6999715261389110456}
-  - component: {fileID: 8433311938052911812}
   - component: {fileID: 8281654309260901823}
   m_Layer: 0
   m_Name: SmallHandsAvatar_URP
@@ -376,20 +375,20 @@ MonoBehaviour:
         _initialLocalRotation: {x: 0.04170756, y: -0.069121055, z: -0.121045694, w: 0.9893587}
         _initialLocalReferenceRotation: {x: 0, y: 0, z: 0, w: 1}
         _initialUniversalLocalReferenceRotation: {x: 0, y: 0, z: 0, w: 1}
-        _initialPosition: {x: -2.284925, y: 1.2251272, z: 0.94838715}
+        _initialPosition: {x: -0.15092485, y: 1.2251272, z: 0.0703871}
         _initialLocalPosition: {x: -0.052647848, y: -0.00000027537345, z: -0.00000015258789}
       _handUniversalLocalAxes:
         _transform: {fileID: 6018395018488629330}
-        _localRight: {x: -0.031768963, y: -0.00041431867, z: 0.99949515}
-        _localUp: {x: -0.01304051, y: 0.99991494, z: 0}
-        _localForward: {x: -0.99941015, y: -0.0130339265, z: -0.03177166}
-        _universalToActualAxesRotation: {x: -0.0046832855, y: 0.7182367, z: -0.00453678,
+        _localRight: {x: -0.03176896, y: -0.00041435088, z: 0.99949515}
+        _localUp: {x: -0.013041524, y: 0.99991494, z: 0}
+        _localForward: {x: -0.99941015, y: -0.01303494, z: -0.03177166}
+        _universalToActualAxesRotation: {x: -0.0046836496, y: 0.7182367, z: -0.004537133,
           w: 0.6957684}
         _initialRotation: {x: -0.18301266, y: 0.18301266, z: 0.6830127, w: 0.6830127}
         _initialLocalRotation: {x: 0, y: 0, z: 0, w: 1}
         _initialLocalReferenceRotation: {x: 0, y: 0, z: 0, w: 1}
         _initialUniversalLocalReferenceRotation: {x: 0, y: 0, z: 0, w: 1}
-        _initialPosition: {x: -2.2840002, y: 1.3, z: 0.878}
+        _initialPosition: {x: -0.15, y: 1.3, z: 0}
         _initialLocalPosition: {x: -0, y: 0, z: 0}
       _armUniversalLocalAxes:
         _transform: {fileID: 0}
@@ -435,88 +434,88 @@ MonoBehaviour:
           _length: 0
           _radius: 0
         _proximalInfo:
-          _length: 0.033424266
-          _radius: 0.02214953
+          _length: 0.03342417
+          _radius: 0.016911775
         _intermediateInfo:
-          _length: 0.026179194
-          _radius: 0.025191773
+          _length: 0.02617924
+          _radius: 0.017945489
         _distalInfo:
-          _length: 0.027390197
-          _radius: 0.008265207
-        _distalLocalTip: {x: -0.027390197, y: -0, z: -0}
-        _distalLocalFingerPrintCenter: {x: -0.01807753, y: 0.0054550366, z: -0}
+          _length: 0.027390229
+          _radius: 0.008482843
+        _distalLocalTip: {x: -0.027390229, y: -0, z: -0}
+        _distalLocalFingerPrintCenter: {x: -0.018077552, y: 0.0055986764, z: -0}
       _indexInfo:
         _avatar: {fileID: 6999715261389110457}
         _side: 0
         _finger: 2
         _metacarpalInfo:
-          _length: 0.052647922
-          _radius: 0.02991328
+          _length: 0.052647907
+          _radius: 0.01509532
         _proximalInfo:
-          _length: 0.027629325
-          _radius: 0.01932166
+          _length: 0.02762932
+          _radius: 0.0123499
         _intermediateInfo:
-          _length: 0.019891806
-          _radius: 0.011784902
+          _length: 0.019891828
+          _radius: 0.010282121
         _distalInfo:
-          _length: 0.021491697
-          _radius: 0.009548366
-        _distalLocalTip: {x: -0.021491697, y: -0, z: -0}
-        _distalLocalFingerPrintCenter: {x: -0.014184521, y: 0.006301922, z: -0}
+          _length: 0.020675594
+          _radius: 0.007255661
+        _distalLocalTip: {x: -0.020675594, y: -0, z: -0}
+        _distalLocalFingerPrintCenter: {x: -0.013645893, y: 0.0047887363, z: -0}
       _middleInfo:
         _avatar: {fileID: 6999715261389110457}
         _side: 0
         _finger: 3
         _metacarpalInfo:
-          _length: 0.05526538
-          _radius: 0.015846042
+          _length: 0.055265367
+          _radius: 0.01584605
         _proximalInfo:
-          _length: 0.028127415
-          _radius: 0.026229413
+          _length: 0.028127402
+          _radius: 0.010801759
         _intermediateInfo:
-          _length: 0.021513248
-          _radius: 0.0118647665
+          _length: 0.021513242
+          _radius: 0.0077691516
         _distalInfo:
-          _length: 0.027572727
-          _radius: 0.011066643
-        _distalLocalTip: {x: -0.027572727, y: -0, z: -0}
-        _distalLocalFingerPrintCenter: {x: -0.018198, y: 0.0073039844, z: -0}
+          _length: 0.023020253
+          _radius: 0.008017086
+        _distalLocalTip: {x: -0.023020253, y: -0, z: -0}
+        _distalLocalFingerPrintCenter: {x: -0.015193367, y: 0.005291277, z: -0}
       _ringInfo:
         _avatar: {fileID: 6999715261389110457}
         _side: 0
         _finger: 4
         _metacarpalInfo:
-          _length: 0.054035727
-          _radius: 0.015139876
+          _length: 0.054035753
+          _radius: 0.015139807
         _proximalInfo:
-          _length: 0.026149668
-          _radius: 0.015090968
+          _length: 0.02614965
+          _radius: 0.008940966
         _intermediateInfo:
-          _length: 0.022380248
-          _radius: 0.0069797104
+          _length: 0.022380168
+          _radius: 0.007404435
         _distalInfo:
-          _length: 0.023429163
-          _radius: 0.011136224
-        _distalLocalTip: {x: -0.023429163, y: -0, z: -0}
-        _distalLocalFingerPrintCenter: {x: -0.015463248, y: 0.007349908, z: -0}
+          _length: 0.019233309
+          _radius: 0.0075787483
+        _distalLocalTip: {x: -0.019233309, y: -0, z: -0}
+        _distalLocalFingerPrintCenter: {x: -0.012693984, y: 0.0050019743, z: -0}
       _littleInfo:
         _avatar: {fileID: 6999715261389110457}
         _side: 0
         _finger: 5
         _metacarpalInfo:
-          _length: 0.05000205
-          _radius: 0.022961833
+          _length: 0.050002053
+          _radius: 0.016004
         _proximalInfo:
-          _length: 0.022677246
-          _radius: 0.016666982
+          _length: 0.022677226
+          _radius: 0.0102851875
         _intermediateInfo:
-          _length: 0.01749311
-          _radius: 0.0126289055
+          _length: 0.017493093
+          _radius: 0.007980268
         _distalInfo:
-          _length: 0.025420174
-          _radius: 0.011999176
-        _distalLocalTip: {x: -0.025420174, y: -0, z: -0}
-        _distalLocalFingerPrintCenter: {x: -0.016777316, y: 0.007919457, z: -0}
+          _length: 0.016283276
+          _radius: 0.007680824
+        _distalLocalTip: {x: -0.016283276, y: -0, z: -0}
+        _distalLocalFingerPrintCenter: {x: -0.010746962, y: 0.005069344, z: -0}
     _rightArmInfo:
       _avatar: {fileID: 6999715261389110457}
       _side: 1
@@ -532,20 +531,20 @@ MonoBehaviour:
         _initialLocalRotation: {x: -0.041707724, y: -0.06912183, z: 0.1210456, w: 0.98935866}
         _initialLocalReferenceRotation: {x: 0, y: 0, z: 0, w: 1}
         _initialUniversalLocalReferenceRotation: {x: 0, y: 0, z: 0, w: 1}
-        _initialPosition: {x: -1.9830749, y: 1.2251271, z: 0.948387}
+        _initialPosition: {x: 0.1509251, y: 1.2251271, z: 0.07038698}
         _initialLocalPosition: {x: -0.052647915, y: 0.00000032838435, z: 0.000000052946515}
       _handUniversalLocalAxes:
         _transform: {fileID: 7525351885977152913}
-        _localRight: {x: 0.03176789, y: -0.00041426867, z: -0.9994952}
-        _localUp: {x: -0.013039377, y: -0.99991494, z: 0}
-        _localForward: {x: -0.9994102, y: 0.013032794, z: -0.031770587}
-        _universalToActualAxesRotation: {x: -0.71823627, y: 0.004682876, z: 0.6957688,
-          w: -0.0045363884}
+        _localRight: {x: 0.03176795, y: -0.0004142865, z: -0.9994952}
+        _localUp: {x: -0.013039913, y: -0.99991494, z: 0}
+        _localForward: {x: -0.9994102, y: 0.01303333, z: -0.031770647}
+        _universalToActualAxesRotation: {x: -0.71823627, y: 0.004683069, z: 0.6957688,
+          w: -0.004536575}
         _initialRotation: {x: -0.18301266, y: 0.18301266, z: 0.6830127, w: 0.6830127}
         _initialLocalRotation: {x: 0, y: 0, z: 0, w: 1}
         _initialLocalReferenceRotation: {x: 0, y: 0, z: 0, w: 1}
         _initialUniversalLocalReferenceRotation: {x: 0, y: 0, z: 0, w: 1}
-        _initialPosition: {x: -1.9840001, y: 1.3, z: 0.878}
+        _initialPosition: {x: 0.15, y: 1.3, z: 0}
         _initialLocalPosition: {x: 0, y: 0, z: 0}
       _armUniversalLocalAxes:
         _transform: {fileID: 0}
@@ -591,88 +590,88 @@ MonoBehaviour:
           _length: 0
           _radius: 0
         _proximalInfo:
-          _length: 0.033424433
-          _radius: 0.018439772
+          _length: 0.033424415
+          _radius: 0.016911661
         _intermediateInfo:
-          _length: 0.02617882
-          _radius: 0.019167671
+          _length: 0.026178865
+          _radius: 0.017945971
         _distalInfo:
-          _length: 0.027390195
-          _radius: 0.009752884
-        _distalLocalTip: {x: -0.027390195, y: -0, z: -0}
-        _distalLocalFingerPrintCenter: {x: -0.01807753, y: -0.0064369035, z: -0}
+          _length: 0.027390232
+          _radius: 0.008482874
+        _distalLocalTip: {x: -0.027390232, y: -0, z: -0}
+        _distalLocalFingerPrintCenter: {x: -0.018077554, y: -0.0055986973, z: -0}
       _indexInfo:
         _avatar: {fileID: 6999715261389110457}
         _side: 1
         _finger: 2
         _metacarpalInfo:
-          _length: 0.052647945
-          _radius: 0.02410136
+          _length: 0.05264792
+          _radius: 0.015095323
         _proximalInfo:
-          _length: 0.027629277
-          _radius: 0.017739516
+          _length: 0.027629267
+          _radius: 0.012350148
         _intermediateInfo:
-          _length: 0.01989174
-          _radius: 0.01392419
+          _length: 0.019891774
+          _radius: 0.010282284
         _distalInfo:
-          _length: 0.020675536
-          _radius: 0.008409718
-        _distalLocalTip: {x: -0.020675536, y: -0, z: -0}
-        _distalLocalFingerPrintCenter: {x: -0.013645855, y: -0.0055504143, z: -0}
+          _length: 0.020675616
+          _radius: 0.007255721
+        _distalLocalTip: {x: -0.020675616, y: -0, z: -0}
+        _distalLocalFingerPrintCenter: {x: -0.013645907, y: -0.004788776, z: -0}
       _middleInfo:
         _avatar: {fileID: 6999715261389110457}
         _side: 1
         _finger: 3
         _metacarpalInfo:
-          _length: 0.055265646
-          _radius: 0.015846042
+          _length: 0.05526564
+          _radius: 0.015846033
         _proximalInfo:
-          _length: 0.028127225
-          _radius: 0.016843617
+          _length: 0.02812721
+          _radius: 0.010801798
         _intermediateInfo:
-          _length: 0.021513116
-          _radius: 0.010033332
+          _length: 0.021513134
+          _radius: 0.0077692065
         _distalInfo:
-          _length: 0.02550066
-          _radius: 0.01237251
-        _distalLocalTip: {x: -0.02550066, y: -0, z: -0}
-        _distalLocalFingerPrintCenter: {x: -0.016830437, y: -0.008165857, z: -0}
+          _length: 0.023020217
+          _radius: 0.008017171
+        _distalLocalTip: {x: -0.023020217, y: -0, z: -0}
+        _distalLocalFingerPrintCenter: {x: -0.015193344, y: -0.005291333, z: -0}
       _ringInfo:
         _avatar: {fileID: 6999715261389110457}
         _side: 1
         _finger: 4
         _metacarpalInfo:
-          _length: 0.054035716
-          _radius: 0.015139816
+          _length: 0.0540357
+          _radius: 0.015139806
         _proximalInfo:
-          _length: 0.026149899
-          _radius: 0.017906671
+          _length: 0.02614991
+          _radius: 0.00894109
         _intermediateInfo:
-          _length: 0.02237996
-          _radius: 0.009664822
+          _length: 0.022379898
+          _radius: 0.007404519
         _distalInfo:
-          _length: 0.019233126
-          _radius: 0.013103694
-        _distalLocalTip: {x: -0.019233126, y: -0, z: -0}
-        _distalLocalFingerPrintCenter: {x: -0.012693863, y: -0.008648438, z: -0}
+          _length: 0.019233206
+          _radius: 0.0075787804
+        _distalLocalTip: {x: -0.019233206, y: -0, z: -0}
+        _distalLocalFingerPrintCenter: {x: -0.012693916, y: -0.0050019952, z: -0}
       _littleInfo:
         _avatar: {fileID: 6999715261389110457}
         _side: 1
         _finger: 5
         _metacarpalInfo:
-          _length: 0.050001938
-          _radius: 0.023290034
+          _length: 0.05000196
+          _radius: 0.01600399
         _proximalInfo:
-          _length: 0.022677153
-          _radius: 0.01799082
+          _length: 0.022677101
+          _radius: 0.0102853775
         _intermediateInfo:
-          _length: 0.017493287
-          _radius: 0.0161745
+          _length: 0.01749329
+          _radius: 0.007980225
         _distalInfo:
-          _length: 0.016119562
-          _radius: 0.015249138
-        _distalLocalTip: {x: -0.016119562, y: -0, z: -0}
-        _distalLocalFingerPrintCenter: {x: -0.010638911, y: -0.0100644315, z: -0}
+          _length: 0.016284008
+          _radius: 0.0076808487
+        _distalLocalTip: {x: -0.016284008, y: -0, z: -0}
+        _distalLocalFingerPrintCenter: {x: -0.010747446, y: -0.00506936, z: -0}
   _handPosesFoldout: 0
   _handPoses:
   - {fileID: 11400000, guid: 5acfc30be8386c24fab779e34288e47a, type: 2}
@@ -742,27 +741,6 @@ MonoBehaviour:
     _animationType: 3
     _handPose: {fileID: 11400000, guid: f75a7c8ed47a5954e9f32fdb4470f8e0, type: 2}
     _poseBlendValue: 0
---- !u!65 &8433311938052911812
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6999715261389110437}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 0.7, y: 1.9848113, z: 0.7}
-  m_Center: {x: 0.054371417, y: 0.9819617, z: -0.05980593}
 --- !u!114 &8281654309260901823
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -835,7 +813,7 @@ PrefabInstance:
     - target: {fileID: 366860759260753796, guid: dde1cc2a360069149a781772e8410006,
         type: 3}
       propertyPath: _invisible
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 366860759260753796, guid: dde1cc2a360069149a781772e8410006,
         type: 3}
