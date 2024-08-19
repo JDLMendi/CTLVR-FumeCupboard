@@ -120,4 +120,9 @@ public class LayeredLiquidController : MonoBehaviour
         bottomLiquid.transform.position = transform.TransformPoint(bottomLiquid.transform.localPosition);
         topLiquid.transform.position = transform.TransformPoint(topLiquid.transform.localPosition);
     }
+
+    public void DecreaseFirstLiquid(float value){
+        if (firstLiquidScale <= 0.0f) return;
+        firstLiquidScale -= value;
+    }
 }
