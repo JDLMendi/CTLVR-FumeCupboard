@@ -17,6 +17,7 @@ public class SeparatoryFunnel : MonoBehaviour
     private bool _isSeperated = false;
     private float _lastActionTime = -Mathf.Infinity;
     private bool _isPlaced;
+    private bool _isStopperOn;
     [SerializeField] private UxrShakeDetector _shakeDetector;
 
     private void Start() {
@@ -42,7 +43,7 @@ public class SeparatoryFunnel : MonoBehaviour
         float xLocalRotation = _stopcockTransform.localRotation.eulerAngles.x;
         // Debug.Log(xLocalRotation);
 
-        if (_isSeperated && ((xLocalRotation >= 70f && xLocalRotation <= 110f) || (xLocalRotation >= 250f && xLocalRotation <= 290f)))
+        if (!_isStopperOn && _isSeperated && ((xLocalRotation >= 70f && xLocalRotation <= 110f) || (xLocalRotation >= 250f && xLocalRotation <= 290f)))
         {
            
             // Activate the particle system if the rotation is within the specified ranges
@@ -67,16 +68,30 @@ public class SeparatoryFunnel : MonoBehaviour
 
 
     private void OnPlaced(object sender, UxrManipulationEventArgs e) {
+        if (e.GrabbableObject.name == "Stopper") {
+            Debug.Log("Stopper is placed");
+            _isStopperOn = true;
+            return;
+        }
+
         _isPlaced = true;
         if (_isSeperated) liquidController.enabled = true;
     }
 
     private void OnRemoved(object sender, UxrManipulationEventArgs e) {
+        if (e.GrabbableObject.name == "Stopper") {
+            Debug.Log("Stopper is removed");
+            _isStopperOn = false;
+            return;
+        }
+
         _isPlaced = false;
         liquidController.enabled = false;
     }
     private void OnShake()
     {
+        if (!_isStopperOn) return; //Stopper should be on before shaking
+        
         Debug.Log("OnShake has been invoked!");
             // A check for whether we want to only execute this method once in a specific timeframe.
         if (_executeOncePerShake)
