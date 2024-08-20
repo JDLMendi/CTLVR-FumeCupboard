@@ -42,7 +42,7 @@ public class LiquidControl : MonoBehaviour
 
     public void Fill() {
         if (_isFull) return;
-        _fillAmount -= 0.0005f;
+        _fillAmount -= 0.00015f;
     }
 
     public void Pour() {
