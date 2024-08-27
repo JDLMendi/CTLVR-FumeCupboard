@@ -87,7 +87,6 @@ GameObject:
   - component: {fileID: 5437749316979779287}
   - component: {fileID: 2826208370228910342}
   - component: {fileID: 977523478012532311}
-  - component: {fileID: 8105614506835077266}
   m_Layer: 0
   m_Name: Liquid
   m_TagString: Untagged
@@ -160,18 +159,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &8105614506835077266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 690694751442929093}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a98f20ac15bd6149b852d7f68174ceb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &727508217826605274
 GameObject:
   m_ObjectHideFlags: 0
@@ -5147,6 +5134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   liquidChild: {fileID: 0}
   liquidColour: {r: 0, g: 0, b: 0, a: 0}
+  liquidRenderer: {fileID: 0}
   grabbableObject: {fileID: 0}
 --- !u!1 &4403096562313690983
 GameObject:

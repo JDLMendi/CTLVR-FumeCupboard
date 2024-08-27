@@ -18,10 +18,8 @@ public class PipetteControl : MonoBehaviour
             }
         }
 
-        if (UxrGrabManager.Instance.GetObjectBeingGrabbed(UxrAvatar.LocalAvatar, UxrHandSide.Right, out UxrGrabbableObject grabbableObject2))
-        {
-            if (UxrAvatar.LocalAvatarInput.GetButtonsPress(UxrHandSide.Right, UxrInputButtons.Trigger))
-            {
+        if (UxrGrabManager.Instance.GetObjectBeingGrabbed(UxrAvatar.LocalAvatar, UxrHandSide.Right, out UxrGrabbableObject grabbableObject2)) {
+            if (UxrAvatar.LocalAvatarInput.GetButtonsPress(UxrHandSide.Right, UxrInputButtons.Trigger)) {
                 grabbableObject2.transform.Find("PipetteLiquid").gameObject.GetComponent<PipetteFill>().pourOut();
             }
         }
