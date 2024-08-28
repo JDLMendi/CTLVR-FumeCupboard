@@ -6,7 +6,12 @@ public class FlowControl : MonoBehaviour
 {
     public ParticleSystem emitter;
     public Transform dial;
+    public AudioSource gasAudio;
 
+    void Start() {
+        gasAudio = GetComponent<AudioSource>();
+        gasAudio.volume = 0.0f;
+    }
 
     void Update()
     {
@@ -14,5 +19,6 @@ public class FlowControl : MonoBehaviour
         // Debug.Log(dialRotation);
         var flowRate = emitter.emission;
         flowRate.rateOverTime = 10 * dialRotation;
+        gasAudio.volume = Mathf.Min(dialRotation,0.8f);
     }
 }

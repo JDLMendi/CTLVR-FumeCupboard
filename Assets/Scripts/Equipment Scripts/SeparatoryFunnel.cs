@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UltimateXR.Mechanics;
 using UltimateXR.Manipulation;
+using UltimateXR.Avatar;
+using UltimateXR.Haptics;
 
 public class SeparatoryFunnel : MonoBehaviour
 {
@@ -101,6 +103,9 @@ public class SeparatoryFunnel : MonoBehaviour
         }
 
         // Execute the functionality.
+        if (!_isSeperated) {
+            UxrAvatar.LocalAvatar.ControllerInput.SendGrabbableHapticFeedback(this.gameObject.GetComponent<UxrGrabbableObject>(), UxrHapticClipType.RumbleFreqLow);
+        }
         _lastActionTime = Time.time;
         Color color = mixedLiquidRenderer.material.color;
         color.a = Mathf.Clamp01(color.a - 0.01f);

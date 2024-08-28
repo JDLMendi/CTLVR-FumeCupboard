@@ -1,4 +1,7 @@
 using UnityEngine;
+using UltimateXR.Avatar;
+using UltimateXR.Haptics;
+using UltimateXR.Manipulation;
 
 public class SpoonPelletInteractionController : MonoBehaviour
 {
@@ -89,6 +92,7 @@ public class SpoonPelletInteractionController : MonoBehaviour
     {
         if (pelletsContainer != null)
         {
+            UxrAvatar.LocalAvatar.ControllerInput.SendGrabbableHapticFeedback(this.gameObject.GetComponent<UxrGrabbableObject>(), UxrHapticClipType.RumbleFreqNormal);
             pelletsContainer.SetActive(false);
             pelletsVisible = false;
         }
