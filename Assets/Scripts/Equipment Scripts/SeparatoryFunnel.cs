@@ -11,11 +11,12 @@ public class SeparatoryFunnel : MonoBehaviour
     public LayeredLiquidController liquidController;
     public GameObject stopcock;
     public ParticleSystem liquidEmitter;
+    public AudioSource soundFx;
     public Renderer mixedLiquidRenderer;
     private Transform _stopcockTransform;
     private float _stopcockRotation;
     private bool  _executeOncePerShake;
-    private float _actionCooldown = 1.0f;
+    private float _actionCooldown = 0.5f;
     private bool _isSeperated = false;
     private float _lastActionTime = -Mathf.Infinity;
     private bool _isPlaced;
@@ -25,7 +26,9 @@ public class SeparatoryFunnel : MonoBehaviour
     private void Start() {
         _stopcockTransform = stopcock.GetComponent<Transform>();
         _shakeDetector = GetComponent<UxrShakeDetector>();
+        soundFx = GetComponent<AudioSource>();
         if (_shakeDetector == null) Debug.Log("ShakeDetector not found!");
+        _executeOncePerShake = true;
     }
     
     private void OnEnable() {
@@ -105,10 +108,11 @@ public class SeparatoryFunnel : MonoBehaviour
         // Execute the functionality.
         if (!_isSeperated) {
             UxrAvatar.LocalAvatar.ControllerInput.SendGrabbableHapticFeedback(this.gameObject.GetComponent<UxrGrabbableObject>(), UxrHapticClipType.RumbleFreqLow);
+            soundFx.Play();
         }
         _lastActionTime = Time.time;
         Color color = mixedLiquidRenderer.material.color;
-        color.a = Mathf.Clamp01(color.a - 0.01f);
+        color.a = Mathf.Clamp01(color.a - 0.03f);
         mixedLiquidRenderer.material.color = color;
 
         if (color.a <= 0.3) _isSeperated = true;

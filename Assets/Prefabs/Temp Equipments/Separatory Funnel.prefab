@@ -7427,6 +7427,7 @@ MonoBehaviour:
   liquidController: {fileID: 5252254269148257645}
   stopcock: {fileID: 2886748173918345282}
   liquidEmitter: {fileID: 2205294425559612053}
+  soundFx: {fileID: 0}
   mixedLiquidRenderer: {fileID: 9028311360167102275}
   _shakeDetector: {fileID: 5120253455201616739}
 --- !u!114 &5120253455201616739

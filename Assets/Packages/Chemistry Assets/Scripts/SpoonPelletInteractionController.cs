@@ -9,6 +9,7 @@ public class SpoonPelletInteractionController : MonoBehaviour
     public GameObject pelletsContainer;
     public GameObject petriDishObject;
     public GameObject liquidObject;
+    public AudioSource spoonSfx;
     public ThermometerFill thermometer;
     public float timerDuration = 120f;
     public float startTemperature = 20f;
@@ -24,6 +25,7 @@ public class SpoonPelletInteractionController : MonoBehaviour
 
     private void Start()
     {
+        spoonSfx = GetComponent<AudioSource>();
         if (pelletsContainer != null)
         {
             pelletsContainer.SetActive(false);
@@ -46,6 +48,8 @@ public class SpoonPelletInteractionController : MonoBehaviour
         {
             DecreaseTemperature();
         }
+
+        if(!thermometer.InsideLiquid()) thermometer.SetTemperature(Mathf.Lerp(thermometer.GetTemperature(), startTemperature, 0.5f));
     }
 
     private void OnTriggerEnter(Collider other)
@@ -54,9 +58,11 @@ public class SpoonPelletInteractionController : MonoBehaviour
         {
             if (pelletsContainer != null)
             {
+                if(!pelletsVisible) spoonSfx.Play();
                 pelletsContainer.SetActive(true);
                 pelletsVisible = true;
                 Debug.Log("Pellets revealed");
+
             }
         }
         else if (other.gameObject == liquidObject)
@@ -135,7 +141,7 @@ public class SpoonPelletInteractionController : MonoBehaviour
 
     private void UpdateThermometer()
     {
-        if (thermometer != null)
+        if (thermometer != null && thermometer.InsideLiquid())
         {
             thermometer.SetTemperature(currentTemperature);
         }

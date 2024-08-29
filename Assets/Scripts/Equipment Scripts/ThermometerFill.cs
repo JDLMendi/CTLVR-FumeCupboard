@@ -1,12 +1,19 @@
 using UnityEngine;
+using UltimateXR.Avatar;
+using UltimateXR.Haptics;
+using UltimateXR.Manipulation;
 
 public class ThermometerFill : MonoBehaviour
 {
+    public GameObject liquidObject;
+
     Material objectMaterial;
     float progressBorder;
     float temperature;
-    public float minTemp = 0f;
-    public float maxTemp = 100f;
+
+    private float minTemp = 0f;
+    private float maxTemp = 100f;
+    private bool inLiquid = false;
 
     void Start()
     {
@@ -17,6 +24,7 @@ public class ThermometerFill : MonoBehaviour
     void Update()
     {
         UpdateThermometer();
+        Debug.Log(inLiquid);
     }
 
     void UpdateThermometer()
@@ -30,6 +38,9 @@ public class ThermometerFill : MonoBehaviour
     {
         temperature = Mathf.Clamp(newTemp, minTemp, maxTemp);
     }
+    public float GetTemperature() {
+        return temperature;
+    }
 
     // These methods can be kept for manual control if needed
     public void increaseTemp()
@@ -40,5 +51,26 @@ public class ThermometerFill : MonoBehaviour
     public void decreaseTemp()
     {
         temperature = Mathf.Max(minTemp, temperature - 0.25f);
+    }
+
+    public bool InsideLiquid()
+    {
+        return inLiquid;
+    }
+
+    public void OnTriggerEnter(Collider other) {
+        Debug.Log("ENTER TRIGGER");
+        if (other.gameObject == liquidObject) {
+            inLiquid = true;
+            UxrAvatar.LocalAvatar.ControllerInput.SendGrabbableHapticFeedback(this.gameObject.GetComponent<UxrGrabbableObject>(), UxrHapticClipType.RumbleFreqNormal);
+        }
+    }
+
+    public void OnTriggerExit(Collider other) {
+        Debug.Log("EXIT TRIGGER");
+        if (other.gameObject == liquidObject) {
+            inLiquid = false;
+            UxrAvatar.LocalAvatar.ControllerInput.SendGrabbableHapticFeedback(this.gameObject.GetComponent<UxrGrabbableObject>(), UxrHapticClipType.RumbleFreqNormal);
+        }
     }
 }
