@@ -24,7 +24,6 @@ public class ThermometerFill : MonoBehaviour
     void Update()
     {
         UpdateThermometer();
-        Debug.Log(inLiquid);
     }
 
     void UpdateThermometer()
@@ -53,24 +52,12 @@ public class ThermometerFill : MonoBehaviour
         temperature = Mathf.Max(minTemp, temperature - 0.25f);
     }
 
-    public bool InsideLiquid()
+    public bool GetInsideLiquid()
     {
         return inLiquid;
     }
 
-    public void OnTriggerEnter(Collider other) {
-        Debug.Log("ENTER TRIGGER");
-        if (other.gameObject == liquidObject) {
-            inLiquid = true;
-            UxrAvatar.LocalAvatar.ControllerInput.SendGrabbableHapticFeedback(this.gameObject.GetComponent<UxrGrabbableObject>(), UxrHapticClipType.RumbleFreqNormal);
-        }
-    }
-
-    public void OnTriggerExit(Collider other) {
-        Debug.Log("EXIT TRIGGER");
-        if (other.gameObject == liquidObject) {
-            inLiquid = false;
-            UxrAvatar.LocalAvatar.ControllerInput.SendGrabbableHapticFeedback(this.gameObject.GetComponent<UxrGrabbableObject>(), UxrHapticClipType.RumbleFreqNormal);
-        }
+    public void SetInsideLiquid(bool collidingWithLiquid) {
+        inLiquid = collidingWithLiquid;
     }
 }

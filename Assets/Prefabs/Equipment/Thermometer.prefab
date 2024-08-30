@@ -562,6 +562,7 @@ GameObject:
   - component: {fileID: 5646520772632123117}
   - component: {fileID: 5376429788150405876}
   - component: {fileID: 1097954359509312984}
+  - component: {fileID: 5134803525168771208}
   - component: {fileID: 1815845562143853382}
   m_Layer: 0
   m_Name: Thermometer
@@ -5301,6 +5302,18 @@ MonoBehaviour:
   _dropSnapMode: 3
   _dropProximityTransformUseSelf: 1
   _dropProximityTransform: {fileID: 0}
+--- !u!114 &5134803525168771208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4099265336033218396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3531eb1cf74c74c43a1c5d794869c8d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1815845562143853382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5667,6 +5680,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef5eb95e8d038604ebe18b7630ff5cfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  liquidObject: {fileID: 0}
 --- !u!1 &5890539835599062830
 GameObject:
   m_ObjectHideFlags: 0

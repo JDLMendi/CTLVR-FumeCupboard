@@ -49,7 +49,7 @@ public class SpoonPelletInteractionController : MonoBehaviour
             DecreaseTemperature();
         }
 
-        if(!thermometer.InsideLiquid()) thermometer.SetTemperature(Mathf.Lerp(thermometer.GetTemperature(), startTemperature, 0.5f));
+        if(!thermometer.GetInsideLiquid()) thermometer.SetTemperature(thermometer.GetTemperature() - 0.2f);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -115,7 +115,7 @@ public class SpoonPelletInteractionController : MonoBehaviour
     {
         float speedMultiplier = timerSpeedIncreased ? 2f : 1f; // Double the speed if the flag is set
 
-        elapsedTime += Time.deltaTime * speedMultiplier;
+        if(thermometer.GetInsideLiquid()) elapsedTime += Time.deltaTime * speedMultiplier;
         if (elapsedTime >= timerDuration)
         {
             timerRunning = false;
@@ -141,9 +141,9 @@ public class SpoonPelletInteractionController : MonoBehaviour
 
     private void UpdateThermometer()
     {
-        if (thermometer != null && thermometer.InsideLiquid())
+        if (thermometer != null && thermometer.GetInsideLiquid())
         {
-            thermometer.SetTemperature(currentTemperature);
+            thermometer.SetTemperature(thermometer.GetTemperature() + (currentTemperature - thermometer.GetTemperature())/16 );
         }
     }
 }
