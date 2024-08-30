@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UltimateXR.Devices;
 using UltimateXR.Avatar;
-using UltimateXR.Core;
-using UltimateXR.UI;
+using UltimateXR.Haptics;
 using UltimateXR.Manipulation;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class ThermometerControl : MonoBehaviour
 {
+    private ThermometerFill thermometerLiquid;
+
+    void Start()
+    {
+        thermometerLiquid = transform.Find("ThermometerInner").gameObject.GetComponent<ThermometerFill>();
+    }
+
     void Update()
     {
+        /*
         if (UxrGrabManager.Instance.GetObjectBeingGrabbed(UxrAvatar.LocalAvatar, UxrHandSide.Left, out UxrGrabbableObject grabbableObject))
         {
             if (UxrAvatar.LocalAvatarInput.GetButtonsPress(UxrHandSide.Left, UxrInputButtons.Trigger))
@@ -28,5 +34,14 @@ public class ThermometerControl : MonoBehaviour
                 grabbableObject2.transform.Find("ThermometerInner").gameObject.GetComponent<ThermometerFill>().decreaseTemp();
             }
         }
+        */
+    }
+
+    void OnTriggerEnter(Collider other) {
+        thermometerLiquid.SetInsideLiquid(true);
+    }
+
+    void OnTriggerExit(Collider other) {
+        thermometerLiquid.SetInsideLiquid(false);
     }
 }

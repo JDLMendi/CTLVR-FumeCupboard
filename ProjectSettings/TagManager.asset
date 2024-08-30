@@ -10,6 +10,7 @@ TagManager:
   - Vent
   - Whiteboard
   - Liquid
+  - PetriDish
   layers:
   - Default
   - TransparentFX

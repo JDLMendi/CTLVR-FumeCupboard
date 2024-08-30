@@ -47,9 +47,10 @@ public class PipetteSDControl : MonoBehaviour
 
             bool triggered = leftTriggered || rightTriggered;
 
-            if (triggered) {
-                if (_collidedWithLiquid) {
-                    if (!_filled) {
+            if (leftTriggered && UxrGrabManager.Instance.GetObjectBeingGrabbed(UxrAvatar.LocalAvatar, UxrHandSide.Left, out UxrGrabbableObject grabbableObject)) {
+                PipetteSDControl self = grabbableObject.gameObject.GetComponent<PipetteSDControl>();
+                if (self._collidedWithLiquid) {
+                    if (!self._filled) {
                         FillPipette();
                         Debug.Log("Filling Pipette");
                     } else {
@@ -60,6 +61,22 @@ public class PipetteSDControl : MonoBehaviour
                     Debug.Log("Not touching a liquid GameObject");
                 }
             }
+
+            if (rightTriggered && UxrGrabManager.Instance.GetObjectBeingGrabbed(UxrAvatar.LocalAvatar, UxrHandSide.Right, out UxrGrabbableObject grabbableObject2)) {
+                PipetteSDControl self = grabbableObject2.gameObject.GetComponent<PipetteSDControl>();
+                if (self._collidedWithLiquid) {
+                    if (!self._filled) {
+                        FillPipette();
+                        Debug.Log("Filling Pipette");
+                    } else {
+                        EmptyPipette();
+                        Debug.Log("Emptying Pipette");
+                    }
+                } else {
+                    Debug.Log("Not touching a liquid GameObject");
+                }
+            }
+
         } else {
             collider.isTrigger = false;
         }
