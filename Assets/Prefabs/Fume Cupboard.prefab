@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 290239313110422997}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.352318, y: -0.8109087, z: 3.78}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4592,9 +4592,9 @@ ParticleSystemForceField:
   m_GameObject: {fileID: 8622272941800924106}
   m_Enabled: 1
   m_Parameters:
-    m_Shape: 3
+    m_Shape: 0
     m_StartRange: 0
-    m_EndRange: 5
+    m_EndRange: 0.6
     m_Length: 1
     m_GravityFocus: 0
     m_RotationRandomness: {x: 0, y: 0}
@@ -4760,7 +4760,7 @@ ParticleSystemForceField:
     m_GravityCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.15
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6051,7 +6051,7 @@ ParticleSystemForceField:
     m_GravityCurve:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.15
+      scalar: 0
       minScalar: 1
       maxCurve:
         serializedVersion: 2
