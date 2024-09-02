@@ -2865,24 +2865,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3713013754782132150, guid: a32c51b3be4ed1741aa760d9c3fe24cd,
+    - target: {fileID: 1517921020921487793, guid: a32c51b3be4ed1741aa760d9c3fe24cd,
         type: 3}
-      propertyPath: m_Parameters.m_GravityCurve.scalar
-      value: 0
+      propertyPath: m_LocalPosition.y
+      value: 0.499
       objectReference: {fileID: 0}
-    - target: {fileID: 6355394201302362881, guid: a32c51b3be4ed1741aa760d9c3fe24cd,
+    - target: {fileID: 3480735473306246905, guid: a32c51b3be4ed1741aa760d9c3fe24cd,
         type: 3}
-      propertyPath: m_Parameters.m_Shape
-      value: 0
+      propertyPath: _translationLimitsMax.z
+      value: 0.385
       objectReference: {fileID: 0}
-    - target: {fileID: 6355394201302362881, guid: a32c51b3be4ed1741aa760d9c3fe24cd,
+    - target: {fileID: 3480735473306246905, guid: a32c51b3be4ed1741aa760d9c3fe24cd,
         type: 3}
-      propertyPath: m_Parameters.m_EndRange
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6355394201302362881, guid: a32c51b3be4ed1741aa760d9c3fe24cd,
-        type: 3}
-      propertyPath: m_Parameters.m_GravityCurve.scalar
+      propertyPath: _translationLimitsMin.z
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
