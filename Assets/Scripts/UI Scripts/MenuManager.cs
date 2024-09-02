@@ -7,7 +7,6 @@ using UltimateXR.Core;
 using UltimateXR.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UltimateXR.Devices;
 
 public class MenuManager : MonoBehaviour
 {

@@ -19,7 +19,6 @@ public class SeparatoryFunnel : MonoBehaviour
     private float _actionCooldown = 0.5f;
     private bool _isSeperated = false;
     private float _lastActionTime = -Mathf.Infinity;
-    private bool _isPlaced;
     private bool _isStopperOn;
     [SerializeField] private UxrShakeDetector _shakeDetector;
 
@@ -79,7 +78,6 @@ public class SeparatoryFunnel : MonoBehaviour
             return;
         }
 
-        _isPlaced = true;
         if (_isSeperated) liquidController.enabled = true;
     }
 
@@ -89,10 +87,9 @@ public class SeparatoryFunnel : MonoBehaviour
             _isStopperOn = false;
             return;
         }
-
-        _isPlaced = false;
         liquidController.enabled = false;
     }
+    
     private void OnShake()
     {
         if (!_isStopperOn) return; //Stopper should be on before shaking

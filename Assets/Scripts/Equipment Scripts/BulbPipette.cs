@@ -31,9 +31,7 @@ public class BulbPipette : MonoBehaviour
     private BulbHolding _rightHolding;
     private Collider _collider;
     private bool _noAir = false; // Used in conjunction with Suction and Air
-    private bool _beingHeld = false;
     private bool _isFilled = false;
-    private bool _collidedWithLiquid = false;
     private GameObject _collidedLiquid;
     private Color _collidedColour = Color.white;
     private Coroutine _fillCoroutine;
@@ -129,7 +127,6 @@ public class BulbPipette : MonoBehaviour
     // Collision when the pipette enters a gameobject with a 'Liquid' Tag
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Liquid")) {
-            _collidedWithLiquid = true;
             _collidedLiquid = other.gameObject;
 
             Renderer renderer = other.GetComponent<Renderer>();
@@ -142,7 +139,6 @@ public class BulbPipette : MonoBehaviour
 
     private void OnTriggerExit(Collider other) {
         if (other.CompareTag("Liquid")) {
-            _collidedWithLiquid = false;
             _collidedLiquid = null;
             Debug.Log("Trigger has left the liquid!");
         }

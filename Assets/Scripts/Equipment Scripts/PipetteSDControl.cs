@@ -12,9 +12,7 @@ public class PipetteSDControl : MonoBehaviour
     public Color liquidColour;
     public Renderer liquidRenderer;
     public UxrGrabbableObject grabbableObject;
-
     private Collider collider;
-
     private bool _filled = false;
     private bool _collidedWithLiquid = false;
 
