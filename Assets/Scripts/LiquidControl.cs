@@ -7,7 +7,7 @@ public class LiquidControl : MonoBehaviour
 {
     public Liquid liquid;
     public Color colour;
-    [Range(0.42f, 0.58f)]
+    [Range(0.42f, 0.52f)]
     public float _fillAmount;
     private Material _liquidMat;
     public bool _isEmpty;
@@ -28,7 +28,7 @@ public class LiquidControl : MonoBehaviour
 
         if (_fillAmount <= 0.42f) {
             _isFull = true;
-        } else if (_fillAmount >= 0.58) {
+        } else if (_fillAmount >= 0.52f) {
             _isEmpty = true;
         } else {
             _isFull = _isEmpty = false;
@@ -42,7 +42,7 @@ public class LiquidControl : MonoBehaviour
 
     public void Fill() {
         if (_isFull) return;
-        _fillAmount -= 0.00015f;
+        _fillAmount -= 0.0002f;
     }
 
     public void Pour() {
