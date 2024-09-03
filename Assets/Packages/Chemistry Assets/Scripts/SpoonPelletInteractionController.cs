@@ -49,7 +49,7 @@ public class SpoonPelletInteractionController : MonoBehaviour
             DecreaseTemperature();
         }
 
-        if(!thermometer.GetInsideLiquid()) thermometer.SetTemperature(thermometer.GetTemperature() - 0.2f);
+        if(!thermometer.GetInsideLiquid()) thermometer.SetTemperature(thermometer.GetTemperature() - 0.05f);
     }
 
     private void OnTriggerEnter(Collider other)

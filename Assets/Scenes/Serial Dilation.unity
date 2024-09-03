@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44202876, g: 0.45022064, b: 0.47379425, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1308,6 +1307,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 14.05
       objectReference: {fileID: 0}
+    - target: {fileID: 4841436281409315749, guid: d3334135c13c24a4d8375bfe7b035aa6,
+        type: 3}
+      propertyPath: _tag
+      value: ExperimentDescription
+      objectReference: {fileID: 0}
     - target: {fileID: 6259560716710632305, guid: d3334135c13c24a4d8375bfe7b035aa6,
         type: 3}
       propertyPath: m_text
@@ -1515,6 +1519,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 166461056523755198, guid: 76e46d58a9eee374bac8c75961952030,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7462547220790994995, guid: 76e46d58a9eee374bac8c75961952030,
         type: 3}
       propertyPath: m_Name
