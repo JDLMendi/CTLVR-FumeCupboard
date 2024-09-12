@@ -1255,7 +1255,7 @@ PrefabInstance:
     - target: {fileID: 3671165935653081860, guid: d3334135c13c24a4d8375bfe7b035aa6,
         type: 3}
       propertyPath: m_text
-      value: Serial Dilation
+      value: Serial Dilution
       objectReference: {fileID: 0}
     - target: {fileID: 4754430249719257147, guid: d3334135c13c24a4d8375bfe7b035aa6,
         type: 3}
@@ -1315,14 +1315,14 @@ PrefabInstance:
     - target: {fileID: 6259560716710632305, guid: d3334135c13c24a4d8375bfe7b035aa6,
         type: 3}
       propertyPath: m_text
-      value: '1. Pick up the bulb pipette
+      value: '1. Pick up the bulb pipette.
 
         2. Remove air from pipette (A).
 
         3.
-        Hover tip over First Volumetric Flask and extract a sample (S)
+        Hover tip over First Volumetric Flask and extract a sample (S).
 
-        4
+        4.
         However filled pipette over the next flask and empty the pipette into it
         (E).
 
